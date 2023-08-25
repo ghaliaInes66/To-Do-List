@@ -7,12 +7,7 @@ app.set('views', './views');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 
-const listTasks=[
-    {
-        id:1,
-        task:'eeeee',
-    },
-];
+const listTasks=[];
 
 app.get('/', (req, res) => {
     return res.render('home',{
