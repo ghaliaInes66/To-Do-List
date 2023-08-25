@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        link(rel="stylesheet", href="/css/main.css")
+        title your tasks
+    body 
+        header 
+            h1 To-Do List 
+        
+        main 
+            form(action="/add/", method="POST").add
+                input(type="text", name="task", placeholder="add a task").text
+                input(type="submit", value="Add").btn
+            
+            each item in data
+                article
+                    - id = item.id
+                    div.task
+                        input(type="checkbox", name="checkbox").check
+                        p=item.task 
+                        form(action="/delete/" + id, method="POST")
+                            input(type="submit", value="Delete").btn
+            
